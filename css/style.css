@@ -1,0 +1,115 @@
+/* Fonts */
+@font-face {
+	font-family: Roboto;
+	font-weight: normal;
+	src: url('../assets/fonts/Roboto-Regular.ttf');
+}
+@font-face {
+	font-family: Roboto;
+	font-weight: bold;
+	src: url('../assets/fonts/Roboto-Bold.ttf');
+}
+html {
+	font-size: 15px;
+}
+:root {
+	/* Primary */
+	--tomato: hsl(4, 100%, 67%);
+	--tomato-ts: hsla(4, 100%, 67%, .5);
+
+	/* Neutral */
+	--dark-slate-grey: hsl(234, 29%, 20%);
+	--charcoal-grey: hsl(235, 18%, 26%);
+	--grey: hsl(231, 7%, 60%);
+	--white: hsl(0, 0%, 100%);
+}
+body {
+	font-family: Roboto, sans-serif;
+	background-color: var(--charcoal-grey);
+	color: var(--dark-slate-grey);
+}
+h1 {
+	font-size: clamp(2.5rem, 4vw, 3.4rem);
+}
+.btn {
+	transition: none;
+	color: #fff;
+	background-color: var(--dark-slate-grey);
+}
+.btn:active,
+.btn:hover {
+	background-image: linear-gradient(to right, #fe5379, var(--tomato));
+	color: var(--white) !important;
+}
+ul {
+	list-style: none;
+	padding-left: 40px;
+}
+ul li::before {
+	position: absolute;
+	left: -40px;
+	top: 1px;
+	content: '';
+	width: 21px;
+	height: 21px;
+	background-image: url('../assets/images/icon-list.svg');
+}
+/* Signup Card */
+.signup-card .body {
+	padding: 2rem;
+}
+form .error {
+	font-size: 13px;
+	color: var(--tomato);
+	visibility: hidden;
+}
+form .error.active {
+	visibility: visible;
+}
+form label {
+	font-size: 13px;
+}
+form input[type=email] {
+	border: 1px solid var(--grey);
+}
+form input[type=email]:focus {
+	border: 1px solid var(--dark-slate-grey);
+	outline: none;
+}
+form input[type=email].invalid {
+	background-color: var(--tomato-ts);
+	border: 1px solid var(--tomato);
+}
+
+/* Success Window */
+.success-window img {
+	width: 56px;
+}
+/* Resposive */
+@media(min-width: 768px) {
+	/* Signup Card */
+	.signup-card {
+		border-radius: 2rem;
+		max-width: 822px;
+	}
+	.signup-card img {
+		height: 100px;
+	}
+	.signup-card .body {
+		order: -1;
+	}
+
+	/* Success Window */
+	.success-window {
+		max-width: 444px;
+		border-radius: 2rem;
+	}
+}
+@media(max-width: 767px) {
+	.signup-card {
+		min-height: 100vh;
+	}
+	.success-window {
+		min-height: 100vh;
+	}
+}
